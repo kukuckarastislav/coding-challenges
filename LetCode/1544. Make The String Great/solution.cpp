@@ -1,3 +1,17 @@
+/*
+Runtime
+0
+ms
+Beats
+100.00%
+of users with C++
+Memory
+7.51
+MB
+Beats
+89.71%
+of users with C++
+*/
 class Solution {
 public:
     string makeGood(string s) {
