@@ -29,7 +29,7 @@ public:
         }
         for(int row = 1; row < numRows-1; row++){
             int i = row;
-            int j = row + inc - 2*row;
+            int j = inc - row;
             while(j < n){
 
                 res[k++] = s[i];
