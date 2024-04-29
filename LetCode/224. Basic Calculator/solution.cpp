@@ -2,60 +2,69 @@
 #include <stack>
 using namespace std;
 
-
+/*
+Runtime
+3
+ms
+Beats
+98.34%
+of users with C++
+Memory
+9.22
+MB
+Beats
+68.71%
+of users with C++
+*/
 
 class Solution {
 public:
     int calculate(string s) {
         
-        stack<pair<int, char>> stk;
-
+        stack<int> stk;
+        int res = 0;
+        int curr = 0;
+        int sign = 1;
         int n = s.size();
-        int operand = 0;
-        int dec = 0;
-        bool creatingOperand = false;
 
         for(int i = 0; i < n; i++){
-
             char c = s[i];
+            
             if(c >= '0' && c <= '9'){
-                operand += c-'0' * dec*10;
-                dec++;
-                creatingOperand = true;
-                if(i < n-1)
-                    continue;
+                curr = curr*10 + (c-'0');
+            }else if(c == '+'){
+                res += curr*sign;
+                curr = 0;
+                sign = 1;
+            }else if(c == '-'){
+                res += curr*sign;
+                curr = 0;
+                sign = -1;
+            }else if(c == '('){
+                stk.push(res);
+                stk.push(sign);
+                res = 0;
+                sign = 1;
+            }else if(c == ')'){
+                res += curr*sign;
+                res *= stk.top(); stk.pop();
+                res += stk.top(); stk.pop();
+                curr = 0;
             }
-
-            if(creatingOperand){
-                if(stk.size()==1 && stk.top().second == '-'){
-                    stk.top().second = 0;
-                    stk.top().first = -operand;
-                }else if(stk.size() > 1 && stk.top().second == '-'){
-                    stk.pop();
-                }else{
-                    stk.emplace(operand, 0);
-                }
-                operand = 0; dec = 0;
-                creatingOperand = false;
-            }
-
-            // try to calculate???
-            if(stk.size() >= 3){
-                
-            }
-
-            if(c == ' ') 
-                continue;
-
-            if(c == '('){
-
-            }
-            
-            stk.emplace(0, c); // + - ( )
-
-            
         }
+        res += curr*sign;
 
-        return 0;
+        return res;
     }
 };
+
+
+int main(){
+
+    Solution sol;
+    //string s = "(1+(4+5+2)-3)+(6+8)";
+    string s = "2147483647";
+    int r = sol.calculate(s);
+
+    return 0;
+}
