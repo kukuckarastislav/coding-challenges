@@ -24,7 +24,7 @@ public:
             maxHeap.push(ratio[i].second);
         }
 
-        double res = ratio[k-1] * qualitySum;
+        double res = ratio[k-1].first * qualitySum;
         for (int i = k; i < n; ++i) {
            
             maxHeap.push(ratio[i].second);
