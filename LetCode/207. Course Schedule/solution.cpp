@@ -86,7 +86,7 @@ MB
 Beats
 47.31%
 of users with C++
-
+*/
 class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
@@ -147,7 +147,7 @@ MB
 Beats
 5.01%
 of users with C++
-
+*/
 class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
@@ -198,4 +198,3 @@ public:
         return false;
     }
 };
-*/
