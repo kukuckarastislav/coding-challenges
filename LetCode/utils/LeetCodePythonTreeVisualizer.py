@@ -45,5 +45,5 @@ def drawtree(root):
     
 if __name__ == '__main__':
     #drawtree(deserialize('[1,2,3,null,null,4,null,null,5]'))
-    t = '[3,9,20,8,4,15,7,null,null,null,null,2,11,5,6,12]'
+    t = '[0,-10,5,null,-3,null,9]'
     drawtree(deserialize(t))
