@@ -11,16 +11,16 @@ struct ListNode {
 
 /*
 Runtime
-108
+92
 ms
 Beats
-83.85%
+99.09%
 of users with C++
 Memory
-54.39
+54.46
 MB
 Beats
-97.69%
+92.50%
 of users with C++
 */
 class Solution {
