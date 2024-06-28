@@ -1,4 +1,4 @@
-from types import List
+from typing import List
 from collections import defaultdict
 
 # Runtime 642ms Beats 88.21%
